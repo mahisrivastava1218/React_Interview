@@ -201,3 +201,53 @@ greet.call(s5); //take a func call it on fall
 greet.apply(s5); //Hello,My
 greet.call(s5,10,20);
 greet.apply(s5,[10,20]);
+
+//Questions
+//Objects & constructors
+
+// An object can have a unique type of characteristic known as a method. Methods are like special abilities that objects can perform, and they give objects different behaviors. 
+
+function methodOnObject(name, age, college, city, country) {
+    let person ={
+       name :name,
+       age:age,
+       college:college,
+       city:city,
+       country:country,
+       getCity: function(){
+         return person.name +" lives in "+ this.city +".";
+       }
+     }
+    return person;
+   }
+   //another way
+   function methodOnObject(name, age, college, city, country) {
+    let person ={
+       name :name,
+       age:age,
+       college:college,
+       city:city,
+       country:country,
+       getCity: function(){
+         return person.name +" lives in "+ this.city +".";
+       }
+     }
+    return person;
+   }
+   
+// The this keyword refers to the current object in which it is used. However, incorrect usage of the this keyword in JavaScript can sometimes lead to errors.
+
+// JavaScript constructor function that accepts a fixed number of arguments (i.e name, age, and occupation) and store them as properties of an object.
+
+class Students{
+    constructor(name,age,occupation){
+      this.name = name;
+      this.age = age;
+      this.occupation = occupation;
+    }
+  }
+  
+  function constructorArgument(name, age, occupation) {
+    // You only need to implement this function and also create a constructor.
+     return new Students(name,age,occupation);
+  }
