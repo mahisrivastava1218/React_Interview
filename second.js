@@ -149,14 +149,154 @@ class Student1{
         this.name=name;
         this.rollNo=rollNo;
     }
+    sayHello(){
+        console.log('hello my name is',this.name);
+    }
 }
 class SportsCaptain extends Student1{
 constructor(name,rollNo,sport){
     super(name,rollNo); //Trigger constructor from prent class Student.constructor
     this.sport = sport;
 }
+sayHello(){
+    console.log('Hello i am ',this.name,'captain',this.sport)
+}
+play(){
+    //introduce to the team
+    //this ->sc1[]
+    //this.sayHello(); sc1->SportsCaptain.prototype
+    super.sayHello();
+    this.sayHello();
+    console.log('Play...',this.sport);
+}
 }
 let sc1 = new SportsCaptain('Rohit',300,'Cricket');
 console.log(sc1);
+sc1.sayHello(); //sc1->SportsCaptain.prototype -> Student.prototype
 let sc2=new Student1('Varun',2);
 console.log(sc2);
+sc2.sayHello(); //s1->Student.prototype
+sc1.play();
+
+//topic
+
+//Inheritance
+// Class inheritance is a way for one class to extend another class. So we can create new functionality on top of the existing.
+// We can use the extends keyword after the class declaration to "extend" the class.
+// So the inherited class shall have the members of the base class (parent class) as well its own members.
+// This helps us in reducing duplicate code and reuse the already written one.
+
+//Method Overriding
+// It is a feature that allows a child class to provide a specific implementation of a method already provided by the parent class.
+// If we define the same method in the child class -> the objects of the child class will call that particular implementation instead of the parent class implementation.
+
+// If we wish to explicitly call the parent class implementation we can use the super keyword.
+// super.method(...) to call a parent method.
+
+//Constructor Overriding
+// If the child class does not have a constructor of its own, it uses the constructor of its parent class.
+// We can have a separate constructor for the child also, 
+// BUT then we'll need to use the super keyword inside the child class's constructor and pass all the values needed to initialize the parent class constructor.
+
+//question practice
+class Length {
+    constructor(ft,inch){
+          this.ft = ft;
+          this.inch = inch;
+          console.log(this.ft);
+    } 
+    isValidObject(){
+          return this.ft >=0 && this.inch>=0;
+    }
+    addLength(lengthObj){
+          if(this.isValidObject() && lengthObj.isValidObject()){
+          let totalInch = (this.ft+lengthObj.ft)*12 + (this.inch+lengthObj.inch);
+          let totalft = Math.floor(totalInch/12);
+          let leftInch = totalInch%12;
+          return [totalft,leftInch];
+          }else{
+                return [0,0];
+          }
+    }
+}
+let s4 = new Length(5,12);
+let s5 = new Length(2,8);
+let sum = s4.addLength(s5);
+console.log(sum);
+module.exports = Length;
+
+///////////////////
+
+class Combinatorics {
+    constructor(N,R){
+          this.N=N;
+          this.R=R;
+    }
+    factorial(num){
+        let multiply=1;
+        for(let i=num;i>1;i--){
+              multiply*=i;
+        }
+        return multiply;
+    }
+    isValid(N,R){
+          return R<N;
+    }
+    findCombinations(N,R){
+          if(!this.isValid(N,R)){
+                return 0;
+          }else{
+                return Math.floor(this.factorial(N)/(this.factorial(R)*this.factorial(N -R)));
+          }
+    }
+    findPermutations(N, R){
+           if(!this.isValid(N,R)){
+                return 0;
+          }else{
+                return Math.floor(this.factorial(N)/(this.factorial(N - R)));
+          }
+    }
+ }
+ let comb = new Combinatorics(5,3);
+ console.log(comb.factorial(5));
+ console.log(comb.findCombinations(5,3));
+ console.log(comb.findPermutations(5,3));
+ 
+ module.exports = Combinatorics;
+
+
+ /////
+ class WordKit {
+    constructor(str){
+          this.str=str;
+    }
+    reverse(str){
+          let arr = str.split('');
+          let left=0;
+          let right=arr.length-1;
+          while(left<right){
+                let temp = arr[left];
+                arr[left]=arr[right];
+                arr[right]=temp;
+                left++;
+                right--;
+          }
+          return arr.join('');
+    }
+    isPalindrome(str){
+          if(str === this.reverse(str)){
+                return true;
+          }else{
+                return false;
+          }
+    }
+    makePalindrome(str){
+          return str.concat(this.reverse(str));
+    }
+}
+let palindrome = new WordKit('alpha');
+console.log(palindrome.reverse('alpha'));
+console.log(palindrome.isPalindrome('alpha'));
+console.log(palindrome.makePalindrome('alpha'));
+
+module.exports = WordKit;
