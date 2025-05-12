@@ -81,3 +81,5 @@ fetchData();
 //If multiple components needs access to the same changing data-> lift the shared state to their closest common ancestor
 
 // debounceSearch(event, debounceTimeout) function to be called on the onChange() event of the search bar
+// event → The onChange event object
+// debounceTimeout → Reference to the debounce timer set
