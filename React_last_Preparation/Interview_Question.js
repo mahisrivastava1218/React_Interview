@@ -105,9 +105,15 @@
 //   );
 // }
 
-
 // how to prepare for interview?
 // first->// what is the need of it
 // then->// need for it
 // then->// what is it
 // then->// how is it used in real world
+
+
+
+// difference why use useref use compare to useEffect
+// ✅ Use useState for data that drives rendering (like a counter, text, toggle).
+// ✅ Use useRef for direct DOM manipulations (like focusing, measuring, animations) or to hold values that don’t need to trigger a re-render.
+
