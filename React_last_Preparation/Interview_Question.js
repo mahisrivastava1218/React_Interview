@@ -117,3 +117,22 @@
 // ✅ Use useState for data that drives rendering (like a counter, text, toggle).
 // ✅ Use useRef for direct DOM manipulations (like focusing, measuring, animations) or to hold values that don’t need to trigger a re-render.
 
+// useMemo hooks
+// useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
+
+// const cachedValue = useMemo(calculateValue, dependencies)
+// example-> user input 1 it run done rendering,now user call 2 useMemo store 1,now render will run again 2 and store ,now user enter 1 it 
+// will do rendering again because useMemo memorize previous stored value only (example-2)(use to prevent unneccessary re-render)
+
+
+// useCallback hooks(it is also used to prevent unneccessary re-render)->(prevent unnecessary re-render of child componet)
+// n React, useCallback is a hook that helps optimize performance by memoizing (caching) function definitions. It prevents the creation of new function references on every render unless a dependency in the hook changes. This can be useful when passing functions as props to memoized child components, as it can prevent unnecessary re-renders. 
+
+// useCallback (save to re-create function)->stop or run if dependencies change0->function references,re-run
+// useMemo->result/value-> not stop or func re-run
+
+// for best practice in large scale useCallback use
+
+
+// // useCOntext->(ex->parent has a data,child A,Child B,Child C-> child C wants data (when not using usecontext data go through child a,Child B,Child C(then c can access)))(this unneccessary data flows on large scale it problmeatic so usecontext api/useContezt hooks come)
+// (useContext hooks where parents send data it only access to (child) consumer who wants data prevent unneccessary data flows))
