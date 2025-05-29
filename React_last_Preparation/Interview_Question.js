@@ -136,3 +136,55 @@
 
 // // useCOntext->(ex->parent has a data,child A,Child B,Child C-> child C wants data (when not using usecontext data go through child a,Child B,Child C(then c can access)))(this unneccessary data flows on large scale it problmeatic so usecontext api/useContezt hooks come)
 // (useContext hooks where parents send data it only access to (child) consumer who wants data prevent unneccessary data flows))
+
+
+// ✅ What are React custom hooks?
+
+// Custom hooks are reusable JavaScript functions in React that start with use and can use other hooks like useState, useEffect, etc.
+
+// They help extract and share logic between components without duplicating code.
+
+// ✅ Why do we need them?
+
+// Code reuse: Logic written once in a custom hook can be shared across multiple components.
+
+// Cleaner components: They help separate logic from UI.
+
+// Maintainability: Updates to logic in a hook automatically update all components that use it.
+
+// ✅ How to create a custom hook?
+// 1️⃣ Write a function that starts with use.
+// 2️⃣ Inside the function, use built-in hooks (like useState, useEffect).
+// 3️⃣ Return data or functions that components can use.
+
+// ✅ Example of a custom hook:
+
+// jsx
+// Copy
+// Edit
+// import { useState, useEffect } from "react";
+
+// const useWindowSize = () => {
+//   const [size, setSize] = useState({
+//     width: window.innerWidth,
+//     height: window.innerHeight,
+//   });
+
+//   useEffect(() => {
+//     const handleResize = () => {
+//       setSize({
+//         width: window.innerWidth,
+//         height: window.innerHeight,
+//       });
+//     };
+
+//     window.addEventListener("resize", handleResize);
+
+//     // Clean up
+//     return () => window.removeEventListener("resize", handleResize);
+//   }, []);
+
+//   return size;
+// };
+
+// export default useWindowSize;
