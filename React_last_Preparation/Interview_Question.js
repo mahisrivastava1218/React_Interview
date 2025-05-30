@@ -188,3 +188,5 @@
 // };
 
 // export default useWindowSize;
+
+// hooks is just a fancy word of some special function available in react(for understanding);
