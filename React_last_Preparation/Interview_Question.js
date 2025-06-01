@@ -190,3 +190,17 @@
 // export default useWindowSize;
 
 // hooks is just a fancy word of some special function available in react(for understanding);
+
+// Values are stored in the memory, and variables are the labels pointing to the memory address where the value is stored. 
+// When we assign a value to a variable either directly (e.g. b = 20;) or from one variable to another 
+// (e.g. b = a;), a new copy of that value is created and stored in the memory and the variable points to it.
+// Valid variable names should:
+// Start with a letter, underscore, or dollar sign.
+// After the first letter, you can use numbers, letters, underscores, dollar signs.
+// JavaScript primarily has two categories of data types: Primitive and Non-Primitive.
+
+// Primitive Data Types: These include String, Number, Boolean, Undefined, Null, BigInt, and Symbol.
+// Non-Primitive Data Types: These mainly include Object (which encompasses objects, arrays, functions, and dates).
+// Non-primitive data types, also known as reference types, are data types that store references to 
+// objects in memory, rather than the actual values themselves.
+// Mathematical operators & precedence order :  () , / , * , % , + , -, **
